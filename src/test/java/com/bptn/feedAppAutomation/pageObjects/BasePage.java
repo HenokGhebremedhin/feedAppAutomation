@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bptn.feedAppAutomation.provider.ResourceProvider;
 import com.bptn.feedAppAutomation.web.DriverManager;
-
+import java.net.URI;
 
 
 
@@ -40,5 +40,17 @@ public class BasePage {
 
 	    return null;
 	}
+	
+	public String getPageRoute()  {
+		  try{
+		  	Thread.sleep(2000);
+		  	return new URI(this.driverManager.getDriver().getCurrentUrl()).getPath();
+
+		  }catch (Exception ex){
+		  	this.logger.error(ex.getMessage(), ex);
+		  }
+
+		  return null;
+		}
 
 }

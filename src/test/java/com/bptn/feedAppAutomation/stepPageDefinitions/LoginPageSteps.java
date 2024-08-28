@@ -35,6 +35,11 @@ public class LoginPageSteps {
 	public void user_should_see_the_message_on_the_login_page(String message) {
 		assertEquals(message, this.loginPage.getMessage());
 	}
+	
+	@Then("User should navigate to {string} to complete their user profile")
+	public void user_should_navigate_to_complete_user_profile(String profileRoute) {
+	    assertEquals(profileRoute, this.loginPage.getPageRoute());
 	}
+}
 
 
